@@ -34,8 +34,7 @@ app.MapPut("/post/{id}", async (PostDb db, Post updatedPost, int id) =>
 {
     var post = await db.Posts.FindAsync(id);
     if (post is null) return Results.NotFound();
-    post.Title = updatedPost.Title;
-    post.Body = updatedPost.Body;
+    post.Update(updatedPost);
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
