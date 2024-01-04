@@ -6,7 +6,8 @@ using Blog.Models;
 const string APITitle = "Blog Access API";
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<PostDb>(options => options.UseInMemoryDatabase("items"));
+var connectionString = builder.Configuration.GetConnectionString("Posts") ?? "Data Source=Posts.db";
+builder.Services.AddSqlite<PostDb>(connectionString);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
