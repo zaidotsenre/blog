@@ -1,0 +1,8 @@
+.AppHeader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -99;
+    background: black;
+}

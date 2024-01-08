@@ -6,6 +6,13 @@ using Blog.Models;
 const string APITitle = "Blog Access API";
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "http://www.localhost:3000");
+    });
+});
 var connectionString = builder.Configuration.GetConnectionString("Posts") ?? "Data Source=Posts.db";
 builder.Services.AddSqlite<PostDb>(connectionString);
 builder.Services.AddEndpointsApiExplorer();
@@ -15,6 +22,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+app.UseCors();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
