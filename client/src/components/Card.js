@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './Card.css';
+import { Link } from "react-router-dom";
 
 function Card(props) {
     return (
@@ -10,9 +11,9 @@ function Card(props) {
             <div className='card-info'>
                 <h2>{props.title}</h2>
                 <p>{props.body.substring(0, 300)}</p>
-                <a href='#'>Read more...</a>
+                <Link to={`read/${props.postId}`}>Read more...</Link>
             </div>
-        </div>
+        </div >
 
     );
 }

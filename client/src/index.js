@@ -3,11 +3,48 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import ErrorPage from './pages/ErrorPage';
+import Reader, { loader as readerLoader } from './pages/Reader';
+import Home, { loader as homeLoader } from './pages/Home';
+import Editor from './pages/Editor';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+        loader: homeLoader
+      },
+      {
+        path: 'read/:postId',
+        element: <Reader />,
+        loader: readerLoader
+      },
+      {
+        path: 'edit/',
+        element: <Editor />,
+      },
+      {
+        path: 'edit/:postId',
+        element: <Editor />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

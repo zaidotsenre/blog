@@ -1,26 +1,15 @@
 
 import './App.css';
-import Home from './pages/Home';
-import Reader from './pages/Reader';
+import Navbar from './components/Navbar';
+import { Outlet } from 'react-router';
 
-
-function App() {
-  /*
-  const [posts, setPosts] = useState(
-    fetch(`http://localhost:5220/posts`).then(
-      (response) => response.json().then(
-        result => result
-      )
-    ));
-    */
+export default function App() {
 
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
 
   );
 }
-
-export default App;
-

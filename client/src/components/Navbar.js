@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import searchIcon from '../img/search.png';
 import settings from '../settings.json';
+import { Link } from "react-router-dom";
 
 function Navbar() {
 
@@ -25,7 +26,7 @@ function Navbar() {
         <div className='navbar'>
             <div className='navbar-top'>
                 <div className='navbar-name'>
-                    <h1>Blog Name</h1>
+                    <Link to={''}><h1>Blog Name</h1></Link>
                 </div>
                 {settings.features.search ? navbarSearch : null}
             </div>

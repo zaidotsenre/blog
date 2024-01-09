@@ -2,8 +2,16 @@
     "features": {
         "navbar_links": false,
         "about_me": true,
-        "popular": true,
+        "popular": false,
         "social_links": false,
         "search": false
+    },
+    "urls": {
+        "api": "http://localhost:5220",
+        "author_socials": {
+            "instagram": "https://www.instagram.com/zaidotsenre/",
+            "github": "https://github.com/zaidotsenre",
+            "linkedin": "https://www.linkedin.com/in/zaidotsenre/"
+        }
     }
 }
