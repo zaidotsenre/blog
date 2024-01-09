@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navbar-top {
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 2fr 10fr 1fr;
+    padding: 0px 20px;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+}
+
+.navbar-name {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-socials {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-bottom {
+    display: none;
+}
+
+.navbar-search {
+    max-width: 30px;
+}
+
+/* Responsive CSS */
+@media screen and (min-width: 900px) {
+
+    /* Display navbar links*/
+    .navbar-bottom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0% 30%;
+    }
+
+}

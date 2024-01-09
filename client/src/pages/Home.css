@@ -1,0 +1,41 @@
+.Home {
+    display: grid;
+    grid-gap: 20px;
+    padding: 100px 50px;
+}
+
+.vertical-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.vertical-panel>* {
+    margin-bottom: 30px;
+}
+
+#avatar {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+#search-icon {
+    max-width: 30px;
+}
+
+
+/* Responsive CSS */
+@media screen and (min-width: 900px) {
+
+    /* Display content in two columns */
+    .Home {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    /* Move the about me section abvove popular posts*/
+    #about-me-section {
+        order: -1;
+    }
+
+}

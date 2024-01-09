@@ -3,6 +3,12 @@ body {
   padding: 0;
   margin: 0;
   background: white;
+
+}
+
+img {
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .App {
@@ -10,102 +16,4 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
-}
-
-.App-navbar {
-  display: inline-block;
-}
-
-.App-navbar-top {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 10px;
-  border-bottom: 1px solid gray;
-  align-items: center;
-}
-
-.App-navbar-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.navbar-socials {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.navbar-search {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.App-content {
-  display: grid;
-  grid-gap: 20px;
-  padding: 100px 50px;
-}
-
-@media screen and (min-width: 900px) {
-  .App-content {
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
-
-.vertical-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-}
-
-.vertical-panel>* {
-  margin-bottom: 30px;
-}
-
-
-.card {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  align-items: center;
-  width: 100%;
-}
-
-.card-thumbnail {
-  padding: 5px;
-}
-
-.card-info {
-  padding: 5px;
-}
-
-.section {
-  border: 1px solid lightgray;
-  border-radius: 2%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px;
-}
-
-.section-header {
-  align-self: flex-start;
-  text-align: center;
-  margin-top: -25px;
-  background-color: white;
-  max-width: max-content;
-  padding: 0px 20px;
-  margin-left: 10px;
-}
-
-.section-header>* {
-  padding: 0px;
-  margin: 0px;
-}
-
-img {
-  max-width: 100%;
-  object-fit: contain;
 }

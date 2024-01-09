@@ -1,0 +1,9 @@
+{
+    "features": {
+        "navbar_links": false,
+        "about_me": true,
+        "popular": true,
+        "social_links": false,
+        "search": false
+    }
+}

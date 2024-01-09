@@ -1,0 +1,11 @@
+.Reader {
+    padding: 50px 10%;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    max-width: 100%;
+    object-fit: contain;
+}

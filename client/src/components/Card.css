@@ -1,0 +1,14 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    width: 100%;
+}
+
+.card-thumbnail {
+    padding: 5px;
+}
+
+.card-info {
+    padding: 5px;
+}
