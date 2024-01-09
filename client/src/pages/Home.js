@@ -6,25 +6,24 @@ import BriefCard from '../components/BriefCard';
 import Section from '../components/Section';
 import settings from '../settings.json';
 import Navbar from '../components/Navbar';
-import { getPosts } from '../requests';
+import { getArticles } from '../requests';
 import { useLoaderData } from 'react-router';
 import SocialLinks from '../components/SocialLinks';
 
 
 export async function loader() {
-    const posts = await getPosts();
-    console.log(`Value returned by homeLoader: ${getPosts()[0]}`);
-    return { posts };
+    const articles = await getArticles();
+    return { articles };
 }
 
 export default function Home() {
 
-    const { posts } = useLoaderData();
+    const { articles } = useLoaderData();
 
     let placeholderBriefCards = new Array(5).fill(<BriefCard img={placeholder} title='Article 1' />);
-    let cards = posts?.map((post) => (
+    let cards = articles?.map((article) => (
 
-        <Card key={post.id} postId={post.id} img={placeholder} title={post.title} body={post.body} />
+        <Card key={article.id} articleId={article.id} img={placeholder} title={article.title} body={article.body} />
     ));
 
     let aboutMeContent = (

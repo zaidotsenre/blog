@@ -11,7 +11,8 @@ import {
 import ErrorPage from './pages/ErrorPage';
 import Reader, { loader as readerLoader } from './pages/Reader';
 import Home, { loader as homeLoader } from './pages/Home';
-import Editor from './pages/Editor';
+import Editor, { action as editorAction } from './pages/Editor';
+
 
 const router = createBrowserRouter([
   {
@@ -25,17 +26,19 @@ const router = createBrowserRouter([
         loader: homeLoader
       },
       {
-        path: 'read/:postId',
+        path: 'read/:articleId',
         element: <Reader />,
         loader: readerLoader
       },
       {
         path: 'edit/',
         element: <Editor />,
+        action: editorAction
       },
       {
-        path: 'edit/:postId',
+        path: 'edit/:articleId',
         element: <Editor />,
+        action: editorAction
       },
     ],
   },

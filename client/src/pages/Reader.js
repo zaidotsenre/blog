@@ -1,24 +1,24 @@
 
 import { useLoaderData } from 'react-router';
 import placeholder from '../img/placeholder.png';
-import { getPost } from '../requests';
+import { getArticle } from '../requests';
 import './Reader.css';
 
 
 export async function loader({ params }) {
-    const post = await getPost(params.postId);
-    return { post };
+    const article = await getArticle(params.articleId);
+    return { article };
 }
 
 export default function Reader(props) {
 
-    const { post } = useLoaderData();
+    const { article } = useLoaderData();
 
     return (
         <div className="Reader">
             <img src={placeholder}></img>
-            <h1>{post.title}</h1>
-            {post.body}
+            <h1>{article.title}</h1>
+            {article.body}
         </div >
     );
 }

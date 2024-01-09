@@ -11,7 +11,7 @@ function Card(props) {
             <div className='card-info'>
                 <h2>{props.title}</h2>
                 <p>{props.body.substring(0, 300)}</p>
-                <Link to={`read/${props.postId}`}>Read more...</Link>
+                <Link to={`read/${props.articleId}`}>Read more...</Link>
             </div>
         </div >
 
