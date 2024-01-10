@@ -33,6 +33,7 @@ export default function Editor() {
                 <input name='thumbnail' type='file' ></input>
                 <textarea name='summary' placeholder='Sumary...' defaultValue={article.summary}></textarea>
                 <input name='seriesid' type='number' defaultValue={article.seriesID}></input>
+                <input name='seriesorder' type='number' defaultValue={article.seriesOrder}></input>
                 <input name='title' type='text' placeholder='Title' defaultValue={article.title}></input>
                 <textarea name='body' placeholder='Type your content here...' defaultValue={article.body}></textarea>
                 <button type='submit'>Done</button>

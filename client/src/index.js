@@ -13,6 +13,11 @@ import Reader, { loader as readerLoader } from './pages/Reader';
 import Home, { loader as homeLoader } from './pages/Home';
 import Editor, { loader as editLoader, editAction, writeAction } from './pages/Editor';
 import DeletePrompt, { loader as deleteLoader, deleteAction } from './components/DeletePrompt';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 
 const router = createBrowserRouter([
