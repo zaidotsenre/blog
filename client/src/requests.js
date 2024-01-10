@@ -35,6 +35,22 @@ export async function postArticle(article) {
         });
     }
 
-    return
+    return;
 }
 
+export async function updateArticle(article) {
+    let fileReader = new FileReader();
+    fileReader.readAsDataURL(article.thumbnail);
+    fileReader.onload = async function () {
+        article.thumbnail = btoa(fileReader.result);
+        article.seriesid = parseInt(article.seriesid);
+        const response = await fetch(`http://localhost:5220/article/${article.id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(article),
+        });
+    }
+    return
+}
