@@ -54,3 +54,10 @@ export async function updateArticle(article) {
     }
     return
 }
+
+export async function deleteArticle(formData) {
+    const response = await fetch(`http://localhost:5220/article/${formData.id}`, {
+        method: 'DELETE',
+    });
+    return response;
+}

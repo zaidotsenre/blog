@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage';
 import Reader, { loader as readerLoader } from './pages/Reader';
 import Home, { loader as homeLoader } from './pages/Home';
 import Editor, { loader as editLoader, editAction, writeAction } from './pages/Editor';
+import DeletePrompt, { loader as deleteLoader, deleteAction } from './components/DeletePrompt';
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,15 @@ const router = createBrowserRouter([
       {
         path: 'read/:articleId',
         element: <Reader />,
-        loader: readerLoader
+        loader: readerLoader,
+        children: [
+          {
+            path: 'delete',
+            element: <DeletePrompt />,
+            loader: deleteLoader,
+            action: deleteAction
+          },
+        ]
       },
       {
         path: 'write/',
