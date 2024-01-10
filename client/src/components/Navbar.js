@@ -1,7 +1,10 @@
-import "./Navbar.css";
 import searchIcon from '../img/search.png';
 import settings from '../settings.json';
 import { Link } from "react-router-dom";
+import { Toolbar } from "@mui/material";
+import { borderBottom } from "@mui/system";
+import Typography from '@mui/material/Typography';
+import * as React from 'react';
 
 function Navbar() {
 
@@ -23,17 +26,28 @@ function Navbar() {
         </>
     );
     return (
-        <div className='navbar'>
-            <div className='navbar-top'>
-                <div className='navbar-name'>
-                    <Link to={''}><h1>Blog Name</h1></Link>
-                </div>
+
+
+        <React.Fragment>
+            <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+
+                <Typography
+                    component="h2"
+                    variant="h5"
+                    color="inherit"
+                    align="center"
+                    noWrap
+                    sx={{ flex: 1 }}
+                >
+                    Blog Name
+                </Typography>
                 {settings.features.search ? navbarSearch : null}
-            </div>
+            </Toolbar >
+            <Toolbar>
+                {settings.features.navbar_links ? navbarLinks : null}
+            </Toolbar>
 
-            {settings.features.navbar_links ? navbarLinks : null}
-
-        </div>
+        </React.Fragment>
     );
 }
 

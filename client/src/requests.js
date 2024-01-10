@@ -1,5 +1,3 @@
-import { func } from "prop-types";
-import { json } from "react-router";
 
 export async function getArticles() {
     let response = (await fetch(`http://localhost:5220/articles`));

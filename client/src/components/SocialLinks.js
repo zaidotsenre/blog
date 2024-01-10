@@ -1,21 +1,17 @@
-import './SocialLinks.css'
-import instagramIcon from '../img/instagram.png';
+import { Avatar, Stack } from '@mui/material';
 import githubIcon from '../img/github.png';
+import instagramIcon from '../img/instagram.png';
 import linkedinIcon from '../img/linkedin.png';
 import settings from "../settings.json";
 
 export default function SocialLinks() {
     return (
-        <div className='SocialLinks'>
-            <a href={settings.urls.author_socials.instagram}>
-                < img src={instagramIcon} alt="Instagram logo"></img>
-            </a>
-            <a href={settings.urls.author_socials.linkedin}>
-                < img src={linkedinIcon} alt="LinkedIn logo"></img>
-            </a>
-            <a href={settings.urls.author_socials.github}>
-                < img src={githubIcon} alt="GitHub logo"></img>
-            </a>
-        </div>
+
+        <Stack direction={'row'} spacing={4} width={'100%'} alignItems={'center'} justifyContent={'center'}>
+            <Avatar src={instagramIcon} alt="Instagram logo" component={'a'} href={settings.urls.author_socials.instagram} />
+            <Avatar src={linkedinIcon} alt="LinkedIn logo" component={'a'} href={settings.urls.author_socials.linkedin} />
+            <Avatar src={githubIcon} alt="GitHub logo" component={'a'} href={settings.urls.author_socials.github} />
+        </Stack>
+
     );
 }

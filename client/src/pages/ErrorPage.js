@@ -1,6 +1,10 @@
-import './ErrorPage.css';
 import Navbar from '../components/Navbar';
 import { useRouteError } from 'react-router';
+import { Box, Typography } from '@mui/material';
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import BackButton from '../components/BackButton';
 
 function ErrorPage(props) {
 
@@ -8,17 +12,24 @@ function ErrorPage(props) {
     console.error(error);
 
     return (
-        <>
-            <Navbar />
-
-            <div className='Error'>
-                <h1>Oops!</h1>
-                <p>Sorry, an error has occured.</p>
-                <i>{error.statusText || error.message}</i>
-            </div>
-        </>
-
-
+        <React.Fragment>
+            <CssBaseline />
+            <Container maxWidth="md" >
+                <Navbar />
+                <Box>
+                    <Typography variant='h1' textAlign={'center'}>
+                        Oops!
+                    </Typography>
+                    <Typography variant='body1' paragraph textAlign={'center'}>
+                        Sorry, an error has occured.
+                    </Typography>
+                    <Typography variant='subtitle2' textAlign={'center'}>
+                        {error.statusText || error.message}
+                    </Typography>
+                    <BackButton />
+                </Box>
+            </Container>
+        </React.Fragment>
     );
 }
 

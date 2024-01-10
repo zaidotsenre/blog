@@ -7,7 +7,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
 import ErrorPage from './pages/ErrorPage';
 import Reader, { loader as readerLoader } from './pages/Reader';
 import Home, { loader as homeLoader } from './pages/Home';
