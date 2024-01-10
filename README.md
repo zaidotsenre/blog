@@ -21,11 +21,6 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/zaidotsenre/blog">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
 <h3 align="center">Personal Blog</h3>
 
   <p align="center">
@@ -52,7 +47,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#run">Usage</a></li>
+        <li><a href="#run">Run</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -65,7 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Blog Screen Shot][product-screenshot]](https://github.com/zaidotsenre/blog)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,7 +165,7 @@ Project Link: [https://github.com/zaidotsenre/blog](https://github.com/zaidotsen
 [issues-url]: https://github.com/zaidotsenre/blog/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/zaidotsenre
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: repo_images/screenshot.png
 
 <!-- Tech Stack Badges adn Links -->
 [reac-badge]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
