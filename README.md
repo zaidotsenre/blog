@@ -18,12 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -37,14 +31,7 @@
   <p align="center">
     A simple blog with support for content serialization and an intuitive and responsive user interface. The overall system is broken down into three parts: the server, the client, and an admin dashboard.
     <br />
-    <a href="https://github.com/zaidotsenre/blog"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
     <a href="https://github.com/zaidotsenre/blog">View Demo</a>
-    ·
-    <a href="https://github.com/zaidotsenre/blog/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/zaidotsenre/blog/issues">Request Feature</a>
   </p>
 </div>
 
@@ -97,8 +84,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+The project is divided into two separate applications: a web client, built with React and Material UI, and a server/REST 
 
 ### Prerequisites
 
@@ -128,8 +114,6 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ### Run
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
 From the `blog` directory:
    ```sh
    ./run.sh
@@ -155,11 +139,6 @@ Client:
 
 <!-- ROADMAP -->
 ## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
 
 See the [open issues](https://github.com/zaidotsenre/blog/issues) for a full list of proposed features (and known issues).
 
