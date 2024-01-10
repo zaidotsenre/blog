@@ -22,8 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -67,14 +65,11 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#run">Usage</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -131,7 +126,7 @@ To get a local copy up and running follow these simple example steps.
 
 
 <!-- USAGE EXAMPLES -->
-## Run
+### Run
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
@@ -176,6 +171,7 @@ See the [open issues](https://github.com/zaidotsenre/blog/issues) for a full lis
 ## Contact
 
 Ernesto Diaz - [@zaidotsenre](https://www.instagram.com/zaidotsenre/) - zaidotsenre@gmail.com
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 Project Link: [https://github.com/zaidotsenre/blog](https://github.com/zaidotsenre/blog)
 
@@ -193,8 +189,6 @@ Project Link: [https://github.com/zaidotsenre/blog](https://github.com/zaidotsen
 [stars-url]: https://github.com/zaidotsenre/blog/stargazers
 [issues-shield]: https://img.shields.io/github/issues/zaidotsenre/blog.svg?style=for-the-badge
 [issues-url]: https://github.com/zaidotsenre/blog/issues
-[license-shield]: https://img.shields.io/github/license/zaidotsenre/blog.svg?style=for-the-badge
-[license-url]: https://github.com/zaidotsenre/blog/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/zaidotsenre
 [product-screenshot]: images/screenshot.png
