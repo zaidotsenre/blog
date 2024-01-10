@@ -84,7 +84,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The project is divided into two separate applications: a web client, built with React and Material UI, and a server/REST 
+The project is divided into three separate applications: a web client, a single-page admin dashboard, and a Minimal API. The tech stack includes React, Material UI, ASP.NET Core, EF Core, and Swagger.
 
 ### Prerequisites
 
