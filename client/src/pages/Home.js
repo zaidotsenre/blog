@@ -23,7 +23,7 @@ export default function Home() {
     let placeholderBriefCards = new Array(5).fill(<BriefCard img={placeholder} title='Article 1' />);
     let cards = articles?.map((article) => (
 
-        <Card key={article.id} articleId={article.id} img={placeholder} title={article.title} body={article.body} />
+        <Card key={article.id} articleId={article.id} thumbnail={article.thumbnail} title={article.title} summary={article.summary} />
     ));
 
     let aboutMeContent = (

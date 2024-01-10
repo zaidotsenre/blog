@@ -10,15 +10,17 @@ export async function loader({ params }) {
     return { article };
 }
 
-export default function Reader(props) {
+export default function Reader() {
 
     const { article } = useLoaderData();
-
     return (
         <div className="Reader">
-            <img src={placeholder}></img>
+            <img src={article.thumbnail}></img>
             <h1>{article.title}</h1>
-            {article.body}
+            <i>{new Date(article.date).toLocaleDateString()}</i>
+            <br></br>
+            <br></br>
+            <div>{article.body}</div>
         </div >
     );
 }
