@@ -145,8 +145,8 @@ See the [open issues](https://github.com/zaidotsenre/blog/issues) for a full lis
 ## Contact
 
 Ernesto Diaz - 
-*zaidotsenre@gmail.com
-*[![LinkedIn][linkedin-shield]][linkedin-url]
+* zaidotsenre@gmail.com
+* [![LinkedIn][linkedin-shield]][linkedin-url]
 
 Project Link: [https://github.com/zaidotsenre/blog](https://github.com/zaidotsenre/blog)
 
