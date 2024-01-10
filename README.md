@@ -175,7 +175,7 @@ See the [open issues](https://github.com/zaidotsenre/blog/issues) for a full lis
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - zaidotsenre@gmail.com
+Ernesto Diaz - [@zaidotsenre](https://www.instagram.com/zaidotsenre/) - zaidotsenre@gmail.com
 
 Project Link: [https://github.com/zaidotsenre/blog](https://github.com/zaidotsenre/blog)
 
