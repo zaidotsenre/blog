@@ -91,14 +91,9 @@
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![ASP.NET Core][asp.net]][aspnet-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -243,3 +238,5 @@ Project Link: [https://github.com/zaidotsenre/blog](https://github.com/zaidotsen
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[asp.net]: https://img.shields.io/badge/asp.net-201155?style=for-the-badge&logo=dotnet&logoColor=white
+[aspnet-url]: https://dotnet.microsoft.com/en-us/apps/aspnet
