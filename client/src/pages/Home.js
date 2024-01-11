@@ -17,7 +17,6 @@ export async function loader({ params }) {
 }
 
 export default function Home() {
-    const navigate = useNavigate();
     const [{ articles }, page] = useLoaderData();
     return (
         <>
@@ -30,6 +29,7 @@ export default function Home() {
                                 <ArticleCard key={article.id} articleId={article.id} thumbnail={article.thumbnail} title={article.title} summary={article.summary} date={article.date} />
                             ))
                         }
+                        {console.log(page)}
                         <Paginator page={page}></Paginator>
                     </Stack>
                 </Grid>

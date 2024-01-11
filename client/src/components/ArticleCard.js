@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import moment from 'moment';
 
 
 export default function ArticleCard(props) {
@@ -18,7 +19,7 @@ export default function ArticleCard(props) {
                         {props.title}
                     </Typography>
                     <Typography variant="subtitle1" color="text.secondary">
-                        {new Date(props.date).toLocaleDateString()}
+                        {moment(props.date).format('LL')}
                     </Typography>
                     <Typography variant="subtitle1" paragraph>
                         {props.summary}

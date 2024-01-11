@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 
 // Helper function to ensure that only valid page numbers are used for routing and display
 function validatePageNumber(page) {
+    if (isNaN(page) || page == null)
+        return 1
     try {
         page = parseInt(page);
         return page <= 0 ? 1 : page;
