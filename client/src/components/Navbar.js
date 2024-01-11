@@ -39,7 +39,7 @@ function Navbar() {
                     noWrap
                     sx={{ flex: 1 }}
                 >
-                    Blog Name
+                    {settings.appTitle}
                 </Typography>
                 {settings.features.search ? navbarSearch : null}
             </Toolbar >

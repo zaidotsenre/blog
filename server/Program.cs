@@ -1,9 +1,11 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Blog.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 // App configuration data
 const string APITitle = "Blog Access API";
+const int PageSize = 3;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
@@ -33,9 +35,46 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", APITitle);
 });
 
+
+
+/* PAGINATION HELPER FUNCTIONS*/
+// Provides the index where we should start reading
+int getIndex(int page, int articleListCount)
+{
+    int index = (page - 1) * PageSize;
+    if (index < 0)
+        return 0;
+    if (index >= articleListCount)
+        return articleListCount - (articleListCount % PageSize);
+    return index;
+}
+// Provides the offset -number of items- we should read
+int getOffset(int index, int pageSize, int articleListCount)
+{
+    if (index + pageSize >= articleListCount)
+        return articleListCount - index;
+    return pageSize;
+}
+
 // Article Routes
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/articles", async (ArticleDb db) => await db.Articles.ToListAsync());
+app.MapGet("/articles/{page}", async (ArticleDb db, int page) =>
+{
+    List<Article> articles = await db.Articles.ToListAsync();
+    articles = articles.OrderByDescending(article => article.Date).ToList();
+    int index = getIndex(page, articles.Count);
+    int offset = getOffset(index, PageSize, articles.Count);
+    return articles.GetRange(index, offset).Select((article) =>
+        new
+        {
+            article.Id,
+            article.Title,
+            article.Summary,
+            article.Thumbnail,
+            article.Date
+        });
+});
+
 app.MapGet("/article/{id}", async (ArticleDb db, int id) => await db.Articles.FindAsync(id));
 app.MapPost("/article", async (ArticleDb db, Article article) =>
 {

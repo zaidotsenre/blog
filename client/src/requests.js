@@ -1,11 +1,10 @@
 
-export async function getArticles() {
-    let response = (await fetch(`http://localhost:5220/articles`));
+export async function getArticles(page) {
+    let response = (await fetch(`http://localhost:5220/articles/${page}`));
     response = await response.json();
     response.forEach(r => {
         r.thumbnail = atob(r.thumbnail);
     });
-    console.log(response);
     return response;
 }
 
@@ -14,7 +13,6 @@ export async function getArticle(articleId) {
     let response = await fetch(`http://localhost:5220/article/${articleId}`);
     response = await response.json();
     response.thumbnail = atob(response.thumbnail);
-    console.log(response);
     return response;
 }
 

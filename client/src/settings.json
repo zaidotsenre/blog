@@ -7,11 +7,15 @@
         "search": false
     },
     "urls": {
-        "api": "http://localhost:5220",
+        "api": "http://localhost:5000",
         "author_socials": {
             "instagram": "https://www.instagram.com/zaidotsenre/",
             "github": "https://github.com/zaidotsenre",
             "linkedin": "https://www.linkedin.com/in/zaidotsenre/"
         }
+    },
+    "appTitle": "Blog Name",
+    "featuredArticle": {
+        "id": 2
     }
 }

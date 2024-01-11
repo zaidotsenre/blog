@@ -6,30 +6,31 @@ import ContactCard from '../components/ContactCard';
 import FeaturedArticle from '../components/FeaturedArticle';
 import { getArticles } from '../requests';
 import settings from '../settings.json';
+import Pagination from '@mui/material/Pagination';
+import { useNavigate } from 'react-router';
+import Paginator from '../components/Paginator';
 
 
-
-export async function loader() {
-    const articles = await getArticles();
-    return { articles };
+export async function loader({ params }) {
+    const articles = await getArticles(params.page ? params.page : 1);
+    return [{ articles }, params.page];
 }
 
 export default function Home() {
-
-    // TODO: modify client/API to retrieve only the necessary data. ie. not the full post, and not all the posts.
-    const { articles } = useLoaderData();
-    const featuredArticle = articles.shift();
+    const navigate = useNavigate();
+    const [{ articles }, page] = useLoaderData();
     return (
         <>
-            <FeaturedArticle id={featuredArticle.id} thumbnail={featuredArticle.thumbnail} title={featuredArticle.title} summary={featuredArticle.summary} />
+            <FeaturedArticle />
             <Grid container spacing={4}>
                 <Grid xs={12} md={7}>
                     <Stack spacing={2}>
                         {
                             articles?.map((article) => (
-                                <ArticleCard key={article.id} articleId={article.id} thumbnail={article.thumbnail} title={article.title} summary={article.summary} />
+                                <ArticleCard key={article.id} articleId={article.id} thumbnail={article.thumbnail} title={article.title} summary={article.summary} date={article.date} />
                             ))
                         }
+                        <Paginator page={page}></Paginator>
                     </Stack>
                 </Grid>
                 <Grid xs={12} md={5}>

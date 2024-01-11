@@ -31,6 +31,11 @@ const router = createBrowserRouter([
         loader: homeLoader
       },
       {
+        path: ':page',
+        element: <Home />,
+        loader: homeLoader
+      },
+      {
         path: 'read/:articleId',
         element: <Reader />,
         loader: readerLoader,

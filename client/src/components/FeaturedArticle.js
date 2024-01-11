@@ -5,11 +5,15 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link as RouterLink } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { getArticle } from '../requests';
+import settings from '../settings.json';
 
-
-export default function FeaturedArticle(props) {
-    const { post } = props;
-
+export default function FeaturedArticle() {
+    const [article, setArticle] = useState();
+    useEffect(() => {
+        getArticle(settings.featuredArticle.id).then((response) => setArticle(response));
+    }, []);
     return (
         <Paper
             sx={{
@@ -20,13 +24,13 @@ export default function FeaturedArticle(props) {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
-                backgroundImage: `url(${props.thumbnail})`,
+                backgroundImage: `url(${article && article.thumbnail})`,
                 minHeight: 300,
                 height: { md: 400, },
             }}
         >
             {/* Increase the priority of the hero background image */}
-            {<img style={{ display: 'none' }} src={props.thumbnail} />}
+            {<img style={{ display: 'none' }} src={article && article.thumbnail} />}
             <Box
                 sx={{
                     position: 'absolute',
@@ -48,12 +52,12 @@ export default function FeaturedArticle(props) {
                         }}
                     >
                         <Typography component="h1" variant="h3" color="inherit" gutterBottom  >
-                            {props.title}
+                            {article && article.title}
                         </Typography>
                         <Typography variant="h5" color="inherit" paragraph>
-                            {props.summary}
+                            {article && article.summary}
                         </Typography>
-                        <Button variant='contained' component={RouterLink} to={`/read/${props.id}`}>Continue reading...</Button>
+                        <Button variant='contained' component={RouterLink} to={`/read/${article && article.id}`}>Continue reading...</Button>
                     </Box>
                 </Grid>
             </Grid>
