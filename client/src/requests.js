@@ -22,6 +22,7 @@ export async function postArticle(article) {
     fileReader.onload = async function () {
         article.thumbnail = btoa(fileReader.result);
         article.seriesid = parseInt(article.seriesid);
+        article.seriesorder = parseInt(article.seriesorder)
         const response = await fetch(`http://localhost:5220/article`, {
             method: 'POST',
             headers: {

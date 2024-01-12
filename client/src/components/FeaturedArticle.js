@@ -24,13 +24,13 @@ export default function FeaturedArticle() {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
-                backgroundImage: `url(${article && article.thumbnail})`,
+                backgroundImage: `url(${article?.thumbnail})`,
                 minHeight: 300,
                 height: { md: 400, },
             }}
         >
             {/* Increase the priority of the hero background image */}
-            {<img style={{ display: 'none' }} src={article && article.thumbnail} />}
+            {<img style={{ display: 'none' }} src={article?.thumbnail} />}
             <Box
                 sx={{
                     position: 'absolute',
@@ -52,12 +52,12 @@ export default function FeaturedArticle() {
                         }}
                     >
                         <Typography component="h1" variant="h3" color="inherit" gutterBottom  >
-                            {article && article.title}
+                            {article?.title}
                         </Typography>
                         <Typography variant="h5" color="inherit" paragraph>
-                            {article && article.summary}
+                            {article?.summary}
                         </Typography>
-                        <Button variant='contained' component={RouterLink} to={`/read/${article && article.id}`}>Continue reading...</Button>
+                        <Button variant='contained' component={RouterLink} to={`/read/${article?.id}`}>Continue reading...</Button>
                     </Box>
                 </Grid>
             </Grid>

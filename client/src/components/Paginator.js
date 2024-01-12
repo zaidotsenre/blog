@@ -21,11 +21,11 @@ export default function Paginator(props) {
     return (
         <Container sx={{ width: '100%' }}>
             <Stack direction={'row'} justifyContent={'center'}>
-                <Button component={RouterLink} to={`/${validatePageNumber(props.page) - 1}`}>{'<Prev.'}</Button>
+                <Button component={RouterLink} to={`/${validatePageNumber(props.page) - 1}`}>{'<Prev'}</Button>
                 <Button variant="outlined" disabled>
                     {validatePageNumber(props.page)}
                 </Button>
-                <Button component={RouterLink} to={`/${validatePageNumber(props.page) + 1}`} >{'Next.>'}</Button>
+                <Button component={RouterLink} to={`/${validatePageNumber(props.page) + 1}`} >{'Next>'}</Button>
             </Stack>
         </Container >
 

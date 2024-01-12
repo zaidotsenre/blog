@@ -17,10 +17,11 @@ builder.Services.AddCors(options =>
         policy.AllowAnyHeader();
     });
 });
-var connectionStringArticles = builder.Configuration.GetConnectionString("Articles") ?? "Data Source=Articles.db";
-var connectionStringSeries = builder.Configuration.GetConnectionString("Series") ?? "Data Source=Series.db";
-builder.Services.AddSqlite<ArticleDb>(connectionStringArticles);
-builder.Services.AddSqlite<SeriesDb>(connectionStringSeries);
+var connectionStringArticles = "Server=(localdb)\\mssqllocaldb;Database=Articles.db;Trusted_Connection=True;";
+var connectionStringSeries = "Server=(localdb)\\mssqllocaldb;Database=Series.db;Trusted_Connection=True;";
+builder.Services.AddSqlServer<ArticleDb>(connectionStringArticles);
+builder.Services.AddSqlServer<SeriesDb>(connectionStringSeries);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

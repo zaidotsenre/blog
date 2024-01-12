@@ -5,6 +5,7 @@ import * as React from 'react';
 import { useLoaderData } from 'react-router';
 import BackButton from '../components/BackButton';
 import { getArticle } from '../requests';
+import moment from 'moment';
 
 export async function loader({ params }) {
     const article = await getArticle(params.articleId);
@@ -47,7 +48,7 @@ export default function Reader() {
                     {article.title}
                 </Typography>
                 <Typography variant="subtitle1" color="text.secondary">
-                    {new Date(article.date).toLocaleDateString()}
+                    {moment(article.date).format('LL')}
                 </Typography>
                 <Typography variant="body1" color="text.primary">
                     {article.body}
