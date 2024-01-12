@@ -11,7 +11,6 @@ namespace Blog.Models
 
         // Update method
         // To be used instead of properties to better support future changes to this model
-        // Takes a Article object as input
         public void Update(Series updatedArticle)
         {
             Title = updatedArticle.Title;
@@ -19,10 +18,4 @@ namespace Blog.Models
         }
     }
 
-    class SeriesDb : DbContext
-    {
-        public SeriesDb(DbContextOptions<SeriesDb> options) : base(options) { }
-        public DbSet<Series> SeriesSet { get; set; } = null!;
-
-    }
 }

@@ -17,10 +17,8 @@ builder.Services.AddCors(options =>
         policy.AllowAnyHeader();
     });
 });
-var connectionStringArticles = "Server=(localdb)\\mssqllocaldb;Database=Articles.db;Trusted_Connection=True;";
-var connectionStringSeries = "Server=(localdb)\\mssqllocaldb;Database=Series.db;Trusted_Connection=True;";
-builder.Services.AddSqlServer<ArticleDb>(connectionStringArticles);
-builder.Services.AddSqlServer<SeriesDb>(connectionStringSeries);
+
+builder.Services.AddSqlServer<BlogDb>(builder.Configuration.GetConnectionString("BlogDb"));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -59,7 +57,7 @@ int getOffset(int index, int pageSize, int articleListCount)
 
 // Article Routes
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/articles/{page}", async (ArticleDb db, int page) =>
+app.MapGet("/articles/{page}", async (BlogDb db, int page) =>
 {
     List<Article> articles = await db.Articles.ToListAsync();
     articles = articles.OrderByDescending(article => article.Date).ToList();
@@ -76,14 +74,14 @@ app.MapGet("/articles/{page}", async (ArticleDb db, int page) =>
         });
 });
 
-app.MapGet("/article/{id}", async (ArticleDb db, int id) => await db.Articles.FindAsync(id));
-app.MapPost("/article", async (ArticleDb db, Article article) =>
+app.MapGet("/article/{id}", async (BlogDb db, int id) => await db.Articles.FindAsync(id));
+app.MapPost("/article", async (BlogDb db, Article article) =>
 {
     await db.Articles.AddAsync(article);
     await db.SaveChangesAsync();
-    return Results.Created($"/article/{article.Id}", article);
+    return Results.Created($"/article/{article.Id}", article.Id);
 });
-app.MapPut("/article/{id}", async (ArticleDb db, Article updatedArticle, int id) =>
+app.MapPut("/article/{id}", async (BlogDb db, Article updatedArticle, int id) =>
 {
     var article = await db.Articles.FindAsync(id);
     if (article is null) return Results.NotFound();
@@ -91,7 +89,7 @@ app.MapPut("/article/{id}", async (ArticleDb db, Article updatedArticle, int id)
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
-app.MapDelete("article/{id}", async (ArticleDb db, int id) =>
+app.MapDelete("article/{id}", async (BlogDb db, int id) =>
 {
     var article = await db.Articles.FindAsync(id);
     if (article is null)
@@ -105,15 +103,15 @@ app.MapDelete("article/{id}", async (ArticleDb db, int id) =>
 
 
 // Series Routes
-app.MapGet("/series", async (SeriesDb db) => await db.SeriesSet.ToListAsync());
-app.MapGet("/series/{id}", async (SeriesDb db, int id) => await db.SeriesSet.FindAsync(id));
-app.MapPost("/series", async (SeriesDb db, Series series) =>
+app.MapGet("/series", async (BlogDb db) => await db.SeriesSet.ToListAsync());
+app.MapGet("/series/{id}", async (BlogDb db, int id) => await db.SeriesSet.FindAsync(id));
+app.MapPost("/series", async (BlogDb db, Series series) =>
 {
     await db.SeriesSet.AddAsync(series);
     await db.SaveChangesAsync();
     return Results.Created($"/series/{series.Id}", series);
 });
-app.MapPut("/series/{id}", async (SeriesDb db, Series updatedSeries, int id) =>
+app.MapPut("/series/{id}", async (BlogDb db, Series updatedSeries, int id) =>
 {
     var series = await db.SeriesSet.FindAsync(id);
     if (series is null) return Results.NotFound();
@@ -121,7 +119,7 @@ app.MapPut("/series/{id}", async (SeriesDb db, Series updatedSeries, int id) =>
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
-app.MapDelete("series/{id}", async (SeriesDb db, int id) =>
+app.MapDelete("series/{id}", async (BlogDb db, int id) =>
 {
     var series = await db.SeriesSet.FindAsync(id);
     if (series is null)

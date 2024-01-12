@@ -28,15 +28,4 @@ namespace Blog.Models
         }
     }
 
-    class ArticleDb : DbContext
-    {
-        public ArticleDb(DbContextOptions<ArticleDb> options) : base(options) { }
-        public DbSet<Article> Articles { get; set; } = null!;
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Article>().Property(b => b.Date).HasDefaultValue(DateTime.Now);
-        }
-    }
 }
