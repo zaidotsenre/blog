@@ -24,13 +24,13 @@ export default function FeaturedArticle() {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
-                backgroundImage: `url(${article?.thumbnail})`,
+                backgroundImage: `url(data:image/jpeg;base64,${article?.thumbnail})`,
                 minHeight: 300,
                 height: { md: 400, },
             }}
         >
             {/* Increase the priority of the hero background image */}
-            {<img style={{ display: 'none' }} src={article?.thumbnail} />}
+            {<img style={{ display: 'none' }} src={`data:image/jpeg;base64,${article?.thumbnail}`} />}
             <Box
                 sx={{
                     position: 'absolute',

@@ -1,21 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import ErrorPage from './pages/ErrorPage';
-import Reader, { loader as readerLoader } from './pages/Reader';
-import Home, { loader as homeLoader } from './pages/Home';
-import Editor, { loader as editLoader, editAction, writeAction } from './pages/Editor';
-import DeletePrompt, { loader as deleteLoader, deleteAction } from './components/DeletePrompt';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import App from './App';
+import DeletePrompt, { deleteAction, loader as deleteLoader } from './components/DeletePrompt';
+import './index.css';
+import Dashboard, { loader as dashboardLoader } from './pages/Dashboard';
+import ErrorPage from './pages/ErrorPage';
+import Home, { loader as homeLoader } from './pages/Home';
+import Reader, { loader as readerLoader } from './pages/Reader';
+import reportWebVitals from './reportWebVitals';
+import Editor, { loader as editorLoader } from './pages/Editor'
 
 
 
@@ -49,15 +50,14 @@ const router = createBrowserRouter([
         ]
       },
       {
-        path: 'write/',
-        element: <Editor />,
-        action: writeAction
+        path: '/dashboard',
+        element: <Dashboard />,
+        loader: dashboardLoader
       },
       {
-        path: 'edit/:articleId',
+        path: '/edit/:id',
         element: <Editor />,
-        loader: editLoader,
-        action: editAction
+        loader: editorLoader
       },
     ],
   },

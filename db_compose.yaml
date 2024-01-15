@@ -1,0 +1,22 @@
+# Creates the DB container
+services:
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - 1433:1433
+    restart: always
+    volumes:
+      - db-data:/var/lib/mssql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=ABC123abc!
+      - MSSQL_PID=Express
+    expose:
+      - 1433
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  db-data:

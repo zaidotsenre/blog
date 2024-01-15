@@ -15,11 +15,7 @@ export default function App() {
     <React.Fragment>
 
       <CssBaseline />
-      <Container maxWidth="md">
-
-        <Navbar />
-        <Outlet />
-      </Container>
+      <Outlet />
     </React.Fragment>
 
   );

@@ -1,0 +1,23 @@
+services:
+  client:
+    build:
+      context: ./client
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: /usr/src/app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./client/package.json
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - 8080:8080

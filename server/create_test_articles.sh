@@ -1,10 +1,7 @@
 
 #!/bin/bash
 
-'''
-    Uses the API to write 5 articles to the database for testing.
 
-'''
 
 counter=1
 while [ $counter -le 5 ]

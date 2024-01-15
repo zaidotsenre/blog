@@ -1,14 +1,14 @@
+import { Container } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/system/Unstable_Grid/Grid';
 import { useLoaderData } from 'react-router';
 import ArticleCard from '../components/ArticleCard';
 import ContactCard from '../components/ContactCard';
 import FeaturedArticle from '../components/FeaturedArticle';
+import Navbar from '../components/Navbar';
+import Paginator from '../components/Paginator';
 import { getArticles } from '../requests';
 import settings from '../settings.json';
-import Pagination from '@mui/material/Pagination';
-import { useNavigate } from 'react-router';
-import Paginator from '../components/Paginator';
 
 
 export async function loader({ params }) {
@@ -19,7 +19,8 @@ export async function loader({ params }) {
 export default function Home() {
     const [{ articles }, page] = useLoaderData();
     return (
-        <>
+        <Container maxWidth="md">
+            <Navbar />
             <FeaturedArticle />
             <Grid container spacing={4}>
                 <Grid xs={12} md={7}>
@@ -37,8 +38,7 @@ export default function Home() {
                     {settings.features.about_me ? <ContactCard /> : null}
                 </Grid>
             </Grid >
-        </>
-
+        </Container>
     );
 }
 
