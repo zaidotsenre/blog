@@ -31,7 +31,7 @@ export default function ArticleCard(props) {
                 <CardMedia
                     component="img"
                     sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-                    image={`data:image/jpeg;base64,${props?.thumbnail}`}
+                    image={`data:${props?.thumbnail}`}
                     alt='Thumbnail'
                 />
             </Card>

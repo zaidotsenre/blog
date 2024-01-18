@@ -10,7 +10,7 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import moment from 'moment';
 import * as React from 'react';
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import '../requests.js';
 import { deleteArticle } from '../requests.js';
 
@@ -19,6 +19,8 @@ import { deleteArticle } from '../requests.js';
 
 export default function DashboardArticleCard(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const navigate = useNavigate();
+
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -63,7 +65,7 @@ export default function DashboardArticleCard(props) {
                     }}
                 >
                     <MenuList key={props.articleId}>
-                        <MenuItem>
+                        <MenuItem onClick={() => { navigate(`/edit/${props.articleId}`) }}>
                             <ListItemIcon>
                                 <EditIcon fontSize="small" />
                             </ListItemIcon>
@@ -95,7 +97,7 @@ export default function DashboardArticleCard(props) {
                 <CardMedia
                     component="img"
                     sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-                    image={`data:image/jpeg;base64,${props?.thumbnail}`}
+                    image={`data:${props?.thumbnail}`}
                     alt='Thumbnail'
                 />
             </Card >

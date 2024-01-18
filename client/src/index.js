@@ -9,14 +9,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
-import DeletePrompt, { deleteAction, loader as deleteLoader } from './components/DeletePrompt';
 import './index.css';
 import Dashboard, { loader as dashboardLoader } from './pages/Dashboard';
+import Editor, { editAction, loader as editorLoader, writeAction } from './pages/Editor';
 import ErrorPage from './pages/ErrorPage';
 import Home, { loader as homeLoader } from './pages/Home';
 import Reader, { loader as readerLoader } from './pages/Reader';
 import reportWebVitals from './reportWebVitals';
-import Editor, { loader as editorLoader } from './pages/Editor'
 
 
 
@@ -40,24 +39,22 @@ const router = createBrowserRouter([
         path: 'read/:articleId',
         element: <Reader />,
         loader: readerLoader,
-        children: [
-          {
-            path: 'delete',
-            element: <DeletePrompt />,
-            loader: deleteLoader,
-            action: deleteAction
-          },
-        ]
       },
       {
-        path: '/dashboard',
+        path: 'dashboard',
         element: <Dashboard />,
-        loader: dashboardLoader
+        loader: dashboardLoader,
       },
       {
-        path: '/edit/:id',
+        path: 'edit/:articleId',
         element: <Editor />,
-        loader: editorLoader
+        loader: editorLoader,
+        action: editAction
+      },
+      {
+        path: 'write',
+        element: <Editor />,
+        action: writeAction
       },
     ],
   },

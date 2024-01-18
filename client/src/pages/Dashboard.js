@@ -1,3 +1,4 @@
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton, Toolbar, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -7,6 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/system/Unstable_Grid/Grid';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import DashboardArticleCard from '../components/DashboardArticleCard';
 import { getArticles } from '../requests';
 import settings from '../settings.json';
@@ -17,7 +19,7 @@ export async function loader({ params }) {
 }
 
 export default function Dashboard() {
-
+    const navigate = useNavigate();
     const [sidebarState, setSidebarState] = useState('false');
     const [{ articles }, page] = useLoaderData();
 
@@ -58,6 +60,18 @@ export default function Dashboard() {
                 </Grid>
             </Grid >
 
+            <IconButton onClick={() => navigate('/write')} color="primary" sx={{
+                position: 'absolute',
+                bottom: '20px',
+                right: '20px',
+                height: '100px',
+                width: '100px'
+            }}>
+                <AddCircleIcon color='primary' sx={{
+                    height: '100%',
+                    width: '100%'
+                }} />
+            </IconButton>
         </>
 
     );
