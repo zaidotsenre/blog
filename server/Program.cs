@@ -1,13 +1,16 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Blog.Models;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 // App configuration data
 const string APITitle = "Blog Access API";
 const int PageSize = 3;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddAuthorization();
+builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<BlogDb>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -27,6 +30,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+app.MapIdentityApi<IdentityUser>();
 app.UseCors();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
@@ -56,7 +60,8 @@ int getOffset(int index, int pageSize, int articleListCount)
 }
 
 // Article Routes
-app.MapGet("/", () => "Hello World!");
+
+// Get many articles (paged)
 app.MapGet("/articles/{page}", async (BlogDb db, int page) =>
 {
     List<Article> articles = await db.Articles.ToListAsync();
@@ -74,13 +79,18 @@ app.MapGet("/articles/{page}", async (BlogDb db, int page) =>
         });
 });
 
+// Get 1 article (by id)
 app.MapGet("/article/{id}", async (BlogDb db, int id) => await db.Articles.FindAsync(id));
+
+// Create a new article - requires auth
 app.MapPost("/article", async (BlogDb db, Article article) =>
 {
     await db.Articles.AddAsync(article);
     await db.SaveChangesAsync();
     return Results.Created($"/article/{article.Id}", article.Id);
-});
+}).RequireAuthorization();
+
+// Update an existing article - requires auth
 app.MapPut("/article/{id}", async (BlogDb db, Article updatedArticle, int id) =>
 {
     var article = await db.Articles.FindAsync(id);
@@ -88,7 +98,9 @@ app.MapPut("/article/{id}", async (BlogDb db, Article updatedArticle, int id) =>
     article.Update(updatedArticle);
     await db.SaveChangesAsync();
     return Results.NoContent();
-});
+}).RequireAuthorization();
+
+// Delete an existing article - requires auth
 app.MapDelete("article/{id}", async (BlogDb db, int id) =>
 {
     var article = await db.Articles.FindAsync(id);
@@ -99,10 +111,11 @@ app.MapDelete("article/{id}", async (BlogDb db, int id) =>
     db.Articles.Remove(article);
     await db.SaveChangesAsync();
     return Results.Ok();
-});
+}).RequireAuthorization();
 
 
 // Series Routes
+/*
 app.MapGet("/series", async (BlogDb db) => await db.SeriesSet.ToListAsync());
 app.MapGet("/series/{id}", async (BlogDb db, int id) => await db.SeriesSet.FindAsync(id));
 app.MapPost("/series", async (BlogDb db, Series series) =>
@@ -130,6 +143,6 @@ app.MapDelete("series/{id}", async (BlogDb db, int id) =>
     await db.SaveChangesAsync();
     return Results.Ok();
 });
-
+*/
 
 app.Run();
